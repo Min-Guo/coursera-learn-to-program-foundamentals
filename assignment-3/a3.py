@@ -12,6 +12,7 @@ A word list is a list of str. For example, the list of words
 is represented as the list
     ['ANT', 'BOX', 'SOB', 'TO']
 """
+words_file = open ('wordfile.txt')
 
 def is_valid_word(wordlist, word):
     """ (list of str, str) -> bool
@@ -21,7 +22,6 @@ def is_valid_word(wordlist, word):
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
     """
-    return word in wordlist
 
 
 def make_str_from_row(board, row_index):
@@ -122,8 +122,7 @@ def num_words_on_board(board, words):
 
     Return how many words appear on board.
 
-    >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX', 'SOB', 'TO'])
-    3
+    >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX'line
     """
 
 
@@ -136,13 +135,14 @@ def read_words(words_file):
     Precondition: Each line of the file contains a word in uppercase characters
     from the standard English alphabet.
     """
-    words = []
-    line = wordfile.readline()
-    while line != '':
-        word = line
-        words.append(word.replace('\n', ''))
-        line = wordfile.readline()
-    return  words
+    wordList = []
+    line = words_file.readline()
+    while line !='':
+        word = line.strip()
+        wordList.append(word)
+        line = words_file.readline()
+    return wordList
+
 
 def read_board(board_file):
     """ (file open for reading) -> list of list of str
