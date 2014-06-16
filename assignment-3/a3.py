@@ -14,6 +14,8 @@ is represented as the list
 """
 words_file = open ('wordfile.txt')
 
+wordlist = read_words(words_file)
+
 def is_valid_word(wordlist, word):
     """ (list of str, str) -> bool
 
@@ -22,6 +24,11 @@ def is_valid_word(wordlist, word):
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
     """
+    
+    if word in wordlist:
+        return True
+    else:
+        return False
 
 
 def make_str_from_row(board, row_index):
@@ -150,4 +157,5 @@ def read_board(board_file):
     Return a board read from open file board_file. The board file will contain
     one row of the board per line. Newlines are not included in the board.
     """
+
 
