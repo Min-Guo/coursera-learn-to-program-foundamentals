@@ -147,6 +147,9 @@ def board_contains_word(board, word):
     >>> board_contains_word([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 'ANT')
     True
     """
+    if board_contains_word_in_row(board, word) == True or board_contains_word_in_column(board, word) == True:
+        return True
+    return False
 
 
 def word_score(word):
