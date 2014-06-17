@@ -48,6 +48,27 @@ def is_valid_word(wordlist, word):
         return False
 
 
+board_file = open('board1.txt')
+
+def read_board(board_file):
+    """ (file open for reading) -> list of list of str
+
+    Return a board read from open file board_file. The board file will contain
+    one row of the board per line. Newlines are not included in the board.
+    """
+    boards = []
+    line = board_file.readline()
+    i = 0
+    while line !='':
+        board = line.strip()
+        boardList = list(board)
+        boards.append(boardList)
+        line = board_file.readline()
+    return boards
+     
+
+board = read_board(board_file)
+
 def make_str_from_row(board, row_index):
     """ (list of list of str, int) -> str
 
@@ -57,6 +78,8 @@ def make_str_from_row(board, row_index):
     >>> make_str_from_row([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 0)
     'ANTT'
     """
+    return ''.join(board[row_index])
+
 
 
 def make_str_from_column(board, column_index):
@@ -150,24 +173,7 @@ def num_words_on_board(board, words):
     """
 
 
-board_file = open('board1.txt')
 
-def read_board(board_file):
-    """ (file open for reading) -> list of list of str
-
-    Return a board read from open file board_file. The board file will contain
-    one row of the board per line. Newlines are not included in the board.
-    """
-    boards = []
-    line = board_file.readline()
-    i = 0
-    while line !='':
-        board = line.strip()
-        boardList = list(board)
-        boards.append(boardList)
-        line = board_file.readline()
-    return boards
-     
 
 
 
