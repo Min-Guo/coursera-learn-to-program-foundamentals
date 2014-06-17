@@ -91,6 +91,12 @@ def make_str_from_column(board, column_index):
     >>> make_str_from_column([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], 1)
     'NS'
     """
+    characters = []
+    for row_index in range(len(board)):
+        character = board[row_index][column_index]
+        characters.append(character)
+        word = ''.join(characters)
+    return word
 
 
 def board_contains_word_in_row(board, word):
