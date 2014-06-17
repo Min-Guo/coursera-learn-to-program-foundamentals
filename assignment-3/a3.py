@@ -14,6 +14,23 @@ is represented as the list
 """
 words_file = open ('wordfile.txt')
 
+def read_words(words_file):
+    """ (file open for reading) -> list of str
+
+    Return a list of all words (with newlines removed) from open file
+    words_file.
+
+    Precondition: Each line of the file contains a word in uppercase characters
+    from the standard English alphabet.
+    """
+    wordList = []
+    line = words_file.readline()
+    while line !='':
+        word = line.strip()
+        wordList.append(word)
+        line = words_file.readline()
+    return wordList
+
 wordlist = read_words(words_file)
 
 def is_valid_word(wordlist, word):
@@ -24,7 +41,7 @@ def is_valid_word(wordlist, word):
     >>> is_valid_word(['ANT', 'BOX', 'SOB', 'TO'], 'TO')
     True
     """
-    
+
     if word in wordlist:
         return True
     else:
@@ -133,23 +150,7 @@ def num_words_on_board(board, words):
     """
 
 
-def read_words(words_file):
-    """ (file open for reading) -> list of str
-
-    Return a list of all words (with newlines removed) from open file
-    words_file.
-
-    Precondition: Each line of the file contains a word in uppercase characters
-    from the standard English alphabet.
-    """
-    wordList = []
-    line = words_file.readline()
-    while line !='':
-        word = line.strip()
-        wordList.append(word)
-        line = words_file.readline()
-    return wordList
-
+board_file = open('board1.txt')
 
 def read_board(board_file):
     """ (file open for reading) -> list of list of str
@@ -157,5 +158,17 @@ def read_board(board_file):
     Return a board read from open file board_file. The board file will contain
     one row of the board per line. Newlines are not included in the board.
     """
+    boards = []
+    line = board_file.readline()
+    i = 0
+    while line !='':
+        board = line.strip()
+        boardList = list(board)
+        boards.append(boardList)
+        line = board_file.readline()
+    return boards
+     
+
+
 
 
