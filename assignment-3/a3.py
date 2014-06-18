@@ -165,6 +165,15 @@ def word_score(word):
     >>> word_score('DRUDGERY')
     16
     """
+    if len(word) < 3:
+        score = 0
+    elif 3 <= len(word) <= 6:
+        score = len(word)
+    elif 7 <= len(word) <= 9:
+        score = 2 * len(word)
+    elif 10 <= len(word):
+        score = 3 * len(word)
+    return score  
 
 
 def update_score(player_info, word):
