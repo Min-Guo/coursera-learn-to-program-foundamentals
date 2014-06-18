@@ -194,8 +194,11 @@ def num_words_on_board(board, words):
 
     >>> num_words_on_board([['A', 'N', 'T', 'T'], ['X', 'S', 'O', 'B']], ['ANT', 'BOX'line
     """
-
-
+    num = 0
+    for i in range(len(words)):
+        if board_contains_word(board, words[i]) == True:
+            num = num + 1
+    return num
 
 
 
