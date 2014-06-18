@@ -184,7 +184,8 @@ def update_score(player_info, word):
 
     >>> update_score(['Jonathan', 4], 'ANT')
     """
-
+    player_info[1] = player_info[1] + word_score(word)
+    return player_info
 
 def num_words_on_board(board, words):
     """ (list of list of str, list of str) -> int
